@@ -8,11 +8,33 @@
 		<meta name="description" content="Grid Loading and Hover Effect: Recreating Samsung's grid loading effect" />
 		<meta name="keywords" content="grid loading, swipe, effect, slide, masonry, web design, tutorial" />
 		<meta name="author" content="Codrops" />
+		
+		
+		
+		
+		
+		<!-- Circle Navigation -->
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}circular_nav/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}circular_nav/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}circular_nav/css/component1.css" />
+		<script src="{{ STATIC_URL }}circular_nav/js/modernizr-2.6.2.min.js"></script>
+		
+		
+		
+		
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}samsung_grid/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}samsung_grid/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}samsung_grid/css/component.css" />
 		<script src="{{ STATIC_URL }}samsung_grid/js/modernizr.custom.js"></script>
+		
+		
+		
+
+	
+		
+		
 	</head>
 	<body>
 		<div class="container">
@@ -38,6 +60,29 @@
 				</ul>
 			</section>
 		</div><!-- /container -->
+		
+		
+		
+		<!-- Circle nav -->
+		<div class="component">
+				<!-- Start Nav Structure -->
+				<button class="cn-button" id="cn-button">+</button>
+				<div class="cn-wrapper" id="cn-wrapper">
+				    <ul>
+				      <li><a href="#"><span class="icon-picture"></span></a></li>
+				      <li><a href="#"><span class="icon-headphones"></span></a></li>
+				      <li><a href="#"><span class="icon-home"></span></a></li>
+				      <li><a href="#"><span class="icon-facetime-video"></span></a></li>
+				      <li><a href="#"><span class="icon-envelope-alt"></span></a></li>
+				     </ul>
+				</div>
+				<div id="cn-overlay" class="cn-overlay"></div>
+				<!-- End Nav Structure -->
+		</div>
+		<script src="{{ STATIC_URL }}circular_nav/js/polyfills.js"></script>
+		<script src="{{ STATIC_URL }}circular_nav/js/demo1.js"></script>
+		
+		
 		<script src="{{ STATIC_URL }}samsung_grid/js/masonry.pkgd.min.js"></script>
 		<script src="{{ STATIC_URL }}samsung_grid/js/imagesloaded.pkgd.min.js"></script>
 		<script src="{{ STATIC_URL }}samsung_grid/js/classie.js"></script>
