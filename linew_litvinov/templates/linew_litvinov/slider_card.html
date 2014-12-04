@@ -18,21 +18,21 @@
 
 			<!-- Codrops top bar -->
 			<div class="codrops-top clearfix">
-				<a href="http://tympanus.net/Development/SimpleDropDownEffects/">
-					<strong>&laquo; Previous Demo: </strong>Simple Effects for Drop-Down Lists
+				<a href="{% url 'theme_cards' cart.theme.id %}">
+					<strong>&laquo; Themes </strong>
 				</a>
 				<span class="right">
-					<a href="http://dribbble.com/isaac317">Illustrations by Isaac Montemayor</a>
-					<a href="http://tympanus.net/codrops/?p=12566">
-						<strong>Back to the Codrops Article</strong>
+					<a href="{% url 'my_profile' %}">My Profile</a>
+					<a href="{% url 'train' cart.id 1 %}">
+						<strong>Train words</strong>
 					</a>
 				</span>
 			</div><!--/ Codrops top bar -->
 			
 			<header class="clearfix">
 			
-				<h1>StackSlider<span>A fun 3D image slider</span></h1>
-				<p>Best viewed in WebKit browsers!</p>
+				<h1>Learn new words!<span>{{ cart.name }}</span></h1>
+				<p></p>
 				<div class="support-note">
 					<span class="note-ie">Sorry, only modern browsers</span>
 				</div>
@@ -62,10 +62,10 @@
 					</table>
 					</div>
 					-->
-					</div><div class="st-title"><h3>{{cart.name}}</h3><h3>by Isaac Montemayor</h3></div></li>
+					</div><div class="st-title"><h3>{{cart.name}}</h3></div></li>
 					{% endfor %}
 				</ul>
-				<p>Tip: to see a continuous flow, keep your mouse pressed on the navigation arrows.</p>
+				
 			</section>
 
 		</div><!-- /container -->

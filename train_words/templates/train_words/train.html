@@ -27,8 +27,8 @@
 	<body class="demo1">
 		<div class="container">
 			<div class="nav-top clearfix">
-				<span class="right"><a class="nav-icon icon-th" href="http://www.onextrapixel.com/category/tutorials/"><span>View all Tutorials</span></a></span>
-				<span class="right"><a class="nav-icon icon-left" href="http://www.onextrapixel.com/2013/09/11/creating-a-dynamic-favicon-and-title-with-notify-better-js/"><span>Back to Tutorial Article</span></a></span>
+				<span class="right"><a class="nav-icon icon-th" href="{% url 'themes' %}"><span>View all Themes</span></a></span>
+				<span class="right"><a class="nav-icon icon-left" href="{% url 'my_profile' %}"><span>My Profile</span></a></span>
 			</div>
 
 			<div class="header">
@@ -42,11 +42,13 @@
 				{% endfor %}
 			</div>
 		
+		<!--
 			<div class="main">
 			  	<span class="label">Random Counter</span>
 			  	<a href="#" class="reload bell"><i class="customicon-bell"></i><span id="notification"></span></a>
 			  	<a href="#" class="reload" id="clear-notification"><i class="customicon-trash"></i> Clear</a>
 	    	</div>
+			-->
 		</div><!-- Container -->
 		
 
