@@ -1,0 +1,8 @@
+{{word.russian_word}}
+
+<form action="{% url 'train_card' card_id=cart.id %}" method="POST">{% csrf_token %}
+{% for word in guess_words %}
+<input type="radio" name="user_word" value="{{word.english_word}}">{{word.english_word}}<br>
+{% endfor %}
+<input type="submit">
+</form>

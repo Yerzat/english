@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<meta charset="UTF-8" />
+	<meta http-equiv="content-language" content="en" />
+	<title>MediaElement.js - HTML5 video player and audio player with Flash and Silverlight shims</title>
+
+	
+	<!-- mediaelement -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script> 
+	<script src="mediaelement-and-player.min.js"></script>
+	<link  href="mediaelementplayer.css" rel="Stylesheet" />
+	<link  href="mejs-skins.css" rel="Stylesheet" />
+
+
+	<style>
+	.syntaxhighlighter {
+		overflow: hidden !important;
+		padding: 10px;
+	}
+	.syntaxhighlighter .gutter .line {
+		border-color: #777 !important;
+	}
+	</style>
+
+</head>
+<body>
+	
+
+
+
+
+
+	
+<div class="plugin-example-container">
+
+	<div class="plugin-example">
+
+		<video id="player1" width="640" height="360" controls="control" preload="none">		
+			<source src="http://lang.kece.ru/sites/default/files/227/ai_mp4_1371555083.mp4" type="video/mp4" />
+			<track kind="subtitles" srclang="en" src="ai_en.srt"></track>
+		</video>	
+		
+	</div>
+
+</div>
+
+<script>
+jQuery(document).ready(function($) {
+
+	$('audio,video').mediaelementplayer({
+		// automatically create these translations on load
+		translations:['es','ar','yi','zh-cn'],
+		// all the user to add additional translations
+		translationSelector: true,
+		// start with English automatically turned on
+		startLanguage: 'en'
+	});
+
+});
+</script>
+
+
+
+
+
+<script>
+jQuery(document).ready(function($) {
+
+	// declare object for video
+	var player = new MediaElementPlayer('#player1'));
+
+});
+</script>
+
+
+
+
+
+</body>
+</html>

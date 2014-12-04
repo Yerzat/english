@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% for word in words %}
+{{word.english_word}}
+{{word.russian_word}}
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>StackSlider: A Fun 3D Image Slider</title>
+		<meta name="description" content="StackSlider: A Fun 3D Image Slider" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link href="{{ STATIC_URL}}css_slider/style.css" rel="stylesheet">
+		<script src="{{ STATIC_URL}}js_slider/modernizr.custom.63321.js"></script>
+		<!--[if lte IE 7]><style>.support-note .note-ie{display:block;}</style><![endif]-->
+	</head>
+	<body>
+		<div class="container">	
+
+			<!-- Codrops top bar -->
+			<div class="codrops-top clearfix">
+				<a href="http://tympanus.net/Development/SimpleDropDownEffects/">
+					<strong>&laquo; Previous Demo: </strong>Simple Effects for Drop-Down Lists
+				</a>
+				<span class="right">
+					<a href="http://dribbble.com/isaac317">Illustrations by Isaac Montemayor</a>
+					<a href="http://tympanus.net/codrops/?p=12566">
+						<strong>Back to the Codrops Article</strong>
+					</a>
+				</span>
+			</div><!--/ Codrops top bar -->
+			
+			<header class="clearfix">
+			
+				<h1>StackSlider<span>A fun 3D image slider</span></h1>
+				<p>Best viewed in WebKit browsers!</p>
+				<div class="support-note">
+					<span class="note-ie">Sorry, only modern browsers</span>
+				</div>
+				
+			</header>
+			
+			<section class="main">
+
+				<ul id="st-stack" class="st-stack-raw">
+					{% for word in words %}
+					<li><div class="st-item">
+					<div style="background-color:#FFFCF4; display:table; font-size: 20px;  width:100%; min-height: 250px; padding: 13px; display: inline-block;">
+					<table style="width:100%; height:100%; margin: 0 auto;">
+						<tr style="height:30px"><td></td></tr>
+						<tr style="height:50px"><td align="center" valign="middle">{{ word.english_word }}</td></tr>
+						<tr style="height:50px"><td align="center" valign="middle"><span style="font-size:15px; color:#FFA500;">{{ word.transcritption }}</span></td></tr>
+						<tr style="height:80px"><td align="center" valign="middle">{{ word.russian_word }}</td></tr>
+					</table>
+				</div>
+					<!--
+					<div style="min-width: 150px; display:table; text-align:center; min-height: 150px; padding: 13px; display: inline-block;">
+						<table border="1" style="min-width: 150px; height:100%; margin: 0 auto;">
+						<tr style="height:10px; min-width: 150px;"><td style="width:100%; white-space:nowrap;"></td></tr>
+						<tr style="height:30px; min-width: 150px;"><td align="center" style="min-width: 150px;">{{ word.english_word }}</td></tr>
+						<tr style="height:30px; min-width: 150px;"><td align="center" style="min-width: 150px;"><span style="font-size:15px; color:#FFA500;">{{ word.transcritption }}</span></td></tr>
+						<tr style="height:60px; min-width: 150px;"><td align="center" style="min-width: 150px;">{{ word.russian_word }}</td></tr>
+					</table>
+					</div>
+					-->
+					</div><div class="st-title"><h3>{{cart.name}}</h3><h3>by Isaac Montemayor</h3></div></li>
+					{% endfor %}
+				</ul>
+				<p>Tip: to see a continuous flow, keep your mouse pressed on the navigation arrows.</p>
+			</section>
+
+		</div><!-- /container -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL}}js_slider/jquery.stackslider.js"></script>
+		<script type="text/javascript">
+			
+			$( function() {
+				
+				$( '#st-stack' ).stackslider();
+
+			});
+
+		</script>
+	</body>
+</html>

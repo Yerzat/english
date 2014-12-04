@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for theme in themes %}
+<li>{{theme.name}}</li>
+    <ul>
+    {% for cart in carts %}
+        {% if theme.name == cart.theme.name %}
+            <li><a href="card/{{cart.id}}">{{cart.name}}</a> <a style="color:red" href="add_card/{{cart.id}}">add</a></li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endfor %}
+
+{% endblock %}
+
+
+

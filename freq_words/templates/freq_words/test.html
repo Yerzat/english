@@ -1,0 +1,13 @@
+<b>{{target}}</b>
+
+
+<form action="" method="POST">{% csrf_token %}
+
+    {% for word in words %}
+
+    <input type="radio" name="word" value="{{word.russian_word}}">{{word.english_word}}<br>
+
+    {% endfor %}
+    
+    <input type="submit"/>
+</form>

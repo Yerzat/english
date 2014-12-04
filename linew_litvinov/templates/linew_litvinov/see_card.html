@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        {{word.english_word}} - {{word.russian_word}}
+    </div>
+</div>
+
+
+<nav>
+  <ul class="pager">
+    <li><a href="{% url 'see_card' card_id=cart.id i=i direction=-1 %}">Previous</a></li>
+    <li><a href="{% url 'see_card' card_id=cart.id i=i direction=1 %}">Next</a></li>
+  </ul>
+</nav>
+
+{% endblock %}

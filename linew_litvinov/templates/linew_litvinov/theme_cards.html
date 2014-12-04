@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="{{ STATIC_URL }}theme_cards/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="{{ STATIC_URL }}theme_cards/css/style.css"> <!-- Resource style -->
+	<script src="{{ STATIC_URL }}theme_cards/js/modernizr.js"></script> <!-- Modernizr -->
+  	
+	<title>3D Items Quick View</title>
+</head>
+<body>
+	<header>
+		<h1>3D Items Quick View</h1>
+	</header>
+	<ul id="cd-gallery-items" class="cd-container">
+		{% for card in cards %}
+		<li>
+			<ul class="cd-item-wrapper">
+			{% for word in card.word_set.all %}
+				<li
+				    {% if forloop.counter == 1 %} class="cd-item-front" {% endif %}
+				    {% if forloop.counter == card.word_set.all|length|add:"-1" %} class="cd-item-middle" {% endif %}
+				    {% if forloop.counter == card.word_set.all|length %} class="cd-item-back"
+				    {% else %} class="cd-item-out"
+				    {% endif %}
+				><a href="#0"><div style="background-color:#FFFCF4; display:table; font-size: 20px;  min-width: 345px; min-height: 250px; padding: 13px; display: inline-block;">
+					<table style="width:100%; height:100%; margin: 0 auto;">
+						<tr style="height:30px"><td></td></tr>
+						<tr style="height:50px"><td align="center" valign="middle">{{ word.english_word }}</td></tr>
+						<tr style="height:50px"><td align="center" valign="middle"><span style="font-size:15px; color:#FFA500;">{{ word.transcritption }}</span></td></tr>
+						<tr style="height:80px"><td align="center" valign="middle">{{ word.russian_word }}</td></tr>
+					</table>
+				</div></a></li>
+			{% endfor %}
+				<!-- <li class="cd-item-out">...</li> -->
+			</ul> <!-- cd-item-wrapper -->
+
+			<div class="cd-item-info">
+				<b><a href="#0">{{ card.name }}</a></b>
+				<em>{{card.word_set.all|length}}</em>
+			</div> <!-- cd-item-info -->
+
+			<nav>
+				<ul class="cd-item-navigation">
+					<li><a class="cd-img-replace" href="#0">Prev</a></li>
+					<li><a class="cd-img-replace" href="#0">Next</a></li>
+				</ul>
+			</nav>
+
+			<a class="cd-3d-trigger cd-img-replace" href="#0">Open</a>
+		</li>
+		{% endfor %}
+
+	</ul> <!-- cd-gallery-items -->
+<script src="{{ STATIC_URL }}theme_cards/js/jquery-2.1.1.js"></script>
+<script src="{{ STATIC_URL }}theme_cards/js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>

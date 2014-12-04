@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" class="demo1 no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Creating a Better Notification with Notify Better.js</title>
+		<meta name="description" content="Creating a notification bubble right on your website's favicon or on your website's title with only a few lines of code." />
+		<meta name="keywords" content="favicon notify, favicon jquery, notification bubble, js favicon, favicon number count" />
+		<meta name="author" content="Author for Onextrapixel" />
+		<link rel="shortcut icon" id="favicon" href="{{ STATIC_URL }}notify-better/favicon.png"> 
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}notify-better/css/default.css" />
+		
+		<!-- Edit Below -->
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    	<script type="text/javascript" src="{{ STATIC_URL }}notify-better/js/jquery.notify-better.js"></script>
+    	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}notify-better/css/style.css" />
+    	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}notify-better/css/elusive-webfont.css" />
+    	<script src="{{ STATIC_URL }}notify-better/js/modernizr.js"></script>
+	
+	<!-- IOSOverlay -->
+		<link rel="stylesheet" href="{{ STATIC_URL }}iosOverlay/css/iosOverlay.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}iosOverlay/css/prettify.css">
+		<script src="{{ STATIC_URL }}iosOverlay/js/modernizr-2.0.6.min.js"></script>
+	
+	</head>
+	<body class="demo1">
+		<div class="container">
+			<div class="nav-top clearfix">
+				<span class="right"><a class="nav-icon icon-th" href="http://www.onextrapixel.com/category/tutorials/"><span>View all Tutorials</span></a></span>
+				<span class="right"><a class="nav-icon icon-left" href="http://www.onextrapixel.com/2013/09/11/creating-a-dynamic-favicon-and-title-with-notify-better-js/"><span>Back to Tutorial Article</span></a></span>
+			</div>
+
+			<div class="header">
+			<hr/>
+				<h1>{{word.english_word}}<span>{{transcription}}</span></h1>	
+			</div>
+
+			<div class="menu">
+				{% for guess_word in guess_words %}
+					<a href="#" {% if guess_word == word %} id="checkMark" {% else %} id="cross" {% endif %}>{{guess_word.russian_word}}</a><br/><br/>
+				{% endfor %}
+			</div>
+		
+			<div class="main">
+			  	<span class="label">Random Counter</span>
+			  	<a href="#" class="reload bell"><i class="customicon-bell"></i><span id="notification"></span></a>
+			  	<a href="#" class="reload" id="clear-notification"><i class="customicon-trash"></i> Clear</a>
+	    	</div>
+		</div><!-- Container -->
+		
+
+	
+		<script src="{{ STATIC_URL }}iosOverlay/js/jquery.min.js"></script>
+		<script src="{{ STATIC_URL }}iosOverlay/js/iosOverlay.js"></script>
+		<script src="{{ STATIC_URL }}iosOverlay/js/spin.min.js"></script>
+		<script src="{{ STATIC_URL }}iosOverlay/js/prettify.js"></script>
+		<script>
+			$(document).on("click", "#checkMark", function(e) {
+					iosOverlay({
+					text: "Right!",
+					duration: 1e3,
+					icon: "{{ STATIC_URL }}iosOverlay/img/check.png"
+				});
+				setTimeout(function(){ window.location = "{% url 'train' cart.id i %}"; }, 500);
+				return false;
+			});
+
+			$(document).on("click", "#cross", function(e) {
+				iosOverlay({
+					text: "Try again!",
+					duration: 1e3,
+					icon: "{{ STATIC_URL }}iosOverlay/img/cross.png"
+				});
+				return false;
+			});
+		</script>
+		
+	</body>
+</html>
